@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiplication Table || Created by Sheikh Ubada</title>
+  </head>
+  <body>
+    <div class="heading">
+      <h1>Multiplication Table</h1>
+    </div>
+    <!-- Main Form -->
+    <form onsubmit="conditionCheck(); return false">
+      <label>Enter a Number of which table you want.</label>
+      <input type="number" id="tableNumber" required />
+      <br />
+      <label>How Many Times Do You want to Print a Table?</label>
+      <input type="number" id="noOfTimes" />
+      <br />
+      <button>Submit</button>
+    </form>
+
+    <!-- Error -->
+    <div class="errorCode"></div>
+
+    <!--Table Part -->
+    <div class="tableHeading"></div>
+    <div id="table"></div>
+    <div class="endingTable"></div>
+
+    <div class="footer">
+      <h4>Created By "HAFIZ SHEIKH UBADA"</h4>
+    </div>
+
+    <script>
+      function conditionCheck() {
+        let tableNumber = document.querySelector("#tableNumber").value;
+        let noOfTimes = document.querySelector("#noOfTimes").value;
+        let table = document.querySelector("#table");
+        let tableHeading = document.querySelector(".tableHeading");
+        let endingTable = document.querySelector(".endingTable");
+        let errorCode = document.querySelector(".errorCode");
+
+        table.innerHTML = "";
+        tableHeading.innerHTML = "";
+        endingTable.innerHTML = "";
+
+        if (tableNumber <= "0") {
+          if (tableNumber == "0") {
+            // set text
+            errorCode.innerHTML = `<h4>Please enter greater than ${tableNumber}. </h4>`;
+          } else {
+            // set text
+            errorCode.innerHTML = `<h4>Please enter positive number</h4>`;
+          }
+        } else {
+          if (noOfTimes === "") {
+            // set by default number Of noOfTimes = 10
+            noOfTimes = 10;
+            // and after call this function
+            runTable();
+          } else if (noOfTimes <= "0") {
+            if (noOfTimes === "0") {
+              // Set Text
+              errorCode.innerHTML = `<h4>Please enter greater than ${noOfTimes} (no.of Times). </h4>`;
+            } else if (Number(noOfTimes) < 0) {
+              // Set Text
+              errorCode.innerHTML = `<h4>Please enter positive number (no.of Times)</h4>`;
+            }
+          } else {
+            // when all condition is true than this function call
+            runTable();
+          }
+
+          function runTable() {
+            // set error code empty
+            errorCode.innerHTML = "";
+            // table heading
+            tableHeading.innerHTML = `<h3> ========== Table Of:${tableNumber} ========== </h3>`;
+
+            // main loop
+            for (let i = 1; i <= noOfTimes; i++) {
+              // create an element (p)
+              let p = document.createElement("p");
+              // set one by one value
+              p.innerHTML = `${tableNumber} x ${i} = ${tableNumber * i}`;
+              // after value set of p insert p in table of div
+              table.appendChild(p);
+            }
+
+            // table bottom heading
+            endingTable.innerHTML = "<h3> ========== END ========== </h3>";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
