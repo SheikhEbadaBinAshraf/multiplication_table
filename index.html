@@ -5,32 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Multiplication Table || Created by SHEIKH OBADA</title>
+    <!-- style -->
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="heading">
-      <h1>Multiplication Table</h1>
-    </div>
-    <!-- Main Form -->
-    <form onsubmit="conditionCheck(); return false">
-      <label>Enter a Number of which table you want.</label>
-      <input type="number" id="tableNumber" required />
-      <br />
-      <label>How Many Times Do You want to Print a Table?</label>
-      <input type="number" id="noOfTimes" />
-      <br />
-      <button>Submit</button>
-    </form>
+    <div class="multiplicationTable">
+      <div class="heading">
+        <h1>Multiplication Table</h1>
+      </div>
+      <!-- Main Form -->
+      <form onsubmit="conditionCheck(); return false">
+        <label>Enter a Number of which table you want: </label>
+        <input type="number" id="tableNumber" required />
+        <br />
+        <label>How Many Times Do You want to Print a Table?</label>
+        <input type="number" id="noOfTimes" />
+        <br />
+        <button>Submit</button>
+      </form>
 
-    <!-- Error -->
-    <div class="errorCode"></div>
+      <!-- Error -->
+      <div class="errorCode"></div>
 
-    <!--Table Part -->
-    <div class="tableHeading"></div>
-    <div id="table"></div>
-    <div class="endingTable"></div>
+      <!--Table Part -->
+      <div class="tableHeading"></div>
+      <div id="table"></div>
+      <div class="endingTable"></div>
 
-    <div class="footer">
-      <h4>Created By "SHEIKH OBADA"</h4>
+      <div class="footer">
+        <h4>Created By "SHEIKH OBADA"</h4>
+      </div>
     </div>
 
     <script>
